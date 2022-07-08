@@ -1,56 +1,47 @@
-﻿#include "SinglyLinkedList.h"
-
+﻿
+#include <iostream>
 using namespace std;
-
+//Тестовый пример
 int main()
 {
-	SinglyLinkedList sll;
+	//Создаем объект класса List
+	List lst;
+	List lst2;
+	{
+		//Тестовая строка
+		char s[] = "Hello, World !!!";
+		//Выводим строку
+		cout << s << "\n\n";
+		//Определяем длину строки
+		size_t len = strlen(s);
+		//Загоняем строку в список
+		for (size_t i = 0; i < len; i++)
+			lst.Push(s[i]);
+	}
+	{
+		//Тестовая строка
+		char s[] = "Oh No, Cringe!";
+		//Выводим строку
+		cout << s << "\n\n";
+		//Определяем длину строки
+		size_t len = strlen(s);
+		//Загоняем строку в список
+		for (size_t i = 0; i < len; i++)
+			lst2.Push(s[i]);
+	}
 
-	// вставка в конец списка
-	sll.AddToTail(10);
-	sll.AddToTail(20);
-	sll.AddToTail(30);
-	sll.AddToTail(40);
-	sll.Print();
 
-	// вставка в начало списка
-	sll.AddToHead(50);
-	sll.AddToHead(60);
-	sll.AddToHead(70);
-	sll.AddToHead(80);
-	sll.Print();
+	(lst + lst2).Print();
+	(lst * lst2).Print();
 
-	// количество элементов, поиск элементов
-	cout << "count: " << sll.GetCount() << "\n";
-	cout << "index of 70: " << sll.IndexOf(70) << ", index of 90: " << sll.IndexOf(90) << "\n";
+	//Распечатываем содержимое списка
+	lst.Print();
+	//Удаляем три элемента списка
+	lst.Pop();
+	lst.Pop();
+	lst.Pop();
+	//Распечатываем содержимое списка
+	lst.Print();
 
-	// вставка по позиции
-	sll.InsertInto(-1, -1);
-	sll.Print();
-	sll.InsertInto(2, 2);
-	sll.Print();
-	sll.InsertInto(22, 22);
-	sll.Print();
-
-	// удаление с начала списка
-	sll.DeleteFromHead();
-	sll.DeleteFromHead();
-	sll.DeleteFromHead();
-	sll.Print();
-
-	// удаление с конца списка
-	sll.DeleteFromTail();
-	sll.DeleteFromTail();
-	sll.DeleteFromTail();
-	sll.Print();
-
-	// удаление по указанному индексу
-	sll.DeleteByIndex(0);
-	sll.DeleteByIndex(1);
-	sll.DeleteByIndex(2);
-	sll.Print();
-
-	// очистка списка
-	sll.Clear();
-	sll.Print();
+	return 0;
 }
