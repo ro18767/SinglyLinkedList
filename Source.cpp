@@ -1,12 +1,12 @@
 ﻿
 #include <iostream>
-using namespace std;
+#include "SinglyLinkedList.h"
 //Тестовый пример
 int main()
 {
 	//Создаем объект класса List
-	List lst;
-	List lst2;
+	List<char> lst;
+	List<char> lst2;
 	{
 		//Тестовая строка
 		char s[] = "Hello, World !!!";
